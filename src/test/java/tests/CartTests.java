@@ -13,4 +13,25 @@ public class CartTests extends BaseTest {
         productsPage.openPage("https://www.saucedemo.com/cart.html");
         Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
     }
+
+    @Test
+    public void addTwoProductsToCartTest() {
+        loginPage.openPage("https://www.saucedemo.com/");
+        loginPage.login("standard_user", "secret_sauce");
+        productsPage.addProductToCart("Sauce Labs Onesie");
+        productsPage.addProductToCart("Sauce Labs Bike Light");
+        productsPage.openPage("https://www.saucedemo.com/cart.html");
+        Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Onesie"), "$7.99");
+        Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bike Light"), "$9.99");
+    }
+
+//    @Test
+//    public void removeProductFromCartTest() {
+//        loginPage.openPage("https://www.saucedemo.com/");
+//        loginPage.login("standard_user", "secret_sauce");
+//        productsPage.addProductToCart("Sauce Labs Onesie");
+//        productsPage.openPage("https://www.saucedemo.com/cart.html");
+//        cartPage.removeItemFromCart("Sauce Labs Onesie");
+//        cartPage.clickOnContinueShoppingButton();
+//    }
 }
