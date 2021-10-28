@@ -13,9 +13,10 @@ public class CheckoutPage extends BasePage {
     private static final By LAST_NAME = By.xpath("//*[@id='last-name']");
     private static final By ZIP_CODE = By.xpath("//*[@id='postal-code']");
     private static final By CONTINUE_BUTTON = By.xpath("//*[@id='continue']");
-    private static final By CANCEL_BUTTON_ON_CHECKOUT_INFO = By.xpath("//*[@id='cancel']/ancestor::*[@class='checkout_buttons']//button");
 
+    private static final By CANCEL_BUTTON_ON_CHECKOUT_INFO = By.xpath("//*[@id='cancel']/ancestor::*[@class='checkout_buttons']//button");
     private static final By CANCEL_BUTTON_ON_CHECKOUT_OVERVIEW = By.xpath("//*[@id='cancel']/ancestor::*[@class='cart_footer']//button");
+    private static final String RETURN_TO_CART_URL = "https://www.saucedemo.com/cart.html";
     private static final By FINISH_BUTTON = By.xpath("//*[@id='finish']");
 
     private static final By COMPLETE_HEADER = By.xpath("//*[text() = 'THANK YOU FOR YOUR ORDER']");
@@ -48,5 +49,17 @@ public class CheckoutPage extends BasePage {
 
     public void clickOnBackHomeButton() {
         driver.findElement(BACK_HOME_BUTTON).click();
+    }
+
+    public void clickOnCancelButtonOnCheckoutInfoPage() {
+        driver.findElement(CANCEL_BUTTON_ON_CHECKOUT_INFO).click();
+    }
+
+    public void clickOnCancelButtonOnCheckoutOverviewPage() {
+        driver.findElement(CANCEL_BUTTON_ON_CHECKOUT_OVERVIEW).click();
+    }
+
+    public String getReturnToCartUrl() {
+        return RETURN_TO_CART_URL;
     }
 }

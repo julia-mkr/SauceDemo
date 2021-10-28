@@ -25,13 +25,14 @@ public class CartTests extends BaseTest {
         Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bike Light"), "$9.99");
     }
 
-//    @Test
-//    public void removeProductFromCartTest() {
-//        loginPage.openPage("https://www.saucedemo.com/");
-//        loginPage.login("standard_user", "secret_sauce");
-//        productsPage.addProductToCart("Sauce Labs Onesie");
-//        productsPage.openPage("https://www.saucedemo.com/cart.html");
-//        cartPage.removeItemFromCart("Sauce Labs Onesie");
-//        cartPage.clickOnContinueShoppingButton();
-//    }
+    @Test
+    public void removeProductFromCartTest() {
+        loginPage.openPage("https://www.saucedemo.com/");
+        loginPage.login("standard_user", "secret_sauce");
+        productsPage.addProductToCart("Sauce Labs Onesie");
+        productsPage.openPage("https://www.saucedemo.com/cart.html");
+        cartPage.removeItemFromCart("Sauce Labs Onesie");
+        // как сделать Assert, если корзина пуста - я не знаю, так как никакого текста при пустой корзине нет,
+        // а в коде меняется только класс div-a c "cart-item" на "removed_cart_item"
+    }
 }

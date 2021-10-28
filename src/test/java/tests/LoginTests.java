@@ -9,7 +9,7 @@ public class LoginTests extends BaseTest {
     public void loginUsingValidDataTest() {
         loginPage.openPage("https://www.saucedemo.com/");
         loginPage.login("standard_user", "secret_sauce");
-        Assert.assertEquals(loginPage.getInventoryPageUrl(), driver.getCurrentUrl());
+        Assert.assertEquals(productsPage.getInventoryPageUrl(), driver.getCurrentUrl());
     }
 
     @Test

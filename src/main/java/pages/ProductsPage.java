@@ -11,12 +11,17 @@ public class ProductsPage extends BasePage{
 
     private static final String ADD_PRODUCT_TO_CART_BUTTON = "//*[text()='%s']/ancestor::*[@class='inventory_item']//button";
     private static final String REMOVE_BUTTON = "//*[text()='%s']/ancestor::*[@class='inventory_item']//button";
+    private static final String INVENTORY_PAGE_URL = "https://www.saucedemo.com/inventory.html";
 
     public void addProductToCart(String productName) {
         driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))).click();
     }
 
-    public void removeItemFromCartOnHomepage(String productName) {
+    public void removeItemFromCartOnProductsPage(String productName) {
         driver.findElement(By.xpath(String.format(REMOVE_BUTTON, productName))).click();
+    }
+
+    public String getInventoryPageUrl() {
+        return INVENTORY_PAGE_URL;
     }
 }

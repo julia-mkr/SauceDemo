@@ -3,10 +3,11 @@
 **_Modal:_** Login page
 1. Log in using valid login data provided by the website; [PASSED] 
 
-**_Modal:_** Homepage
+**_Modal:_** Products page
+
 1. Add any item to the cart using the "ADD TO CART" button; [PASSED]
-2. Remove an item using the "REMOVE" button from the homepage; [PASSED]
-3. Add several items using the "ADD TO CART" button from the homepage; [PASSED]
+2. Remove an item using the "REMOVE" button from the Products page; [PASSED]
+3. Add several items using the "ADD TO CART" button from the Products page; [PASSED]
 4. Sort items by name in ascending order (A to Z); [PASSED]
 5. Sort items by name in descending order (Z to A); [PASSED]
 6. Sort items by price from low to high; [PASSED]
@@ -27,7 +28,7 @@
 2. Finish the checkout; [PASSED]
 
 **_Modal:_** Menu
-1. Return to the homepage clicking on the "ALL ITEMS" tab; [PASSED]
+1. Return to the Products page clicking on the "ALL ITEMS" tab; [PASSED]
 2. Click on the "ABOUT" tab; [PASSED]
 3. Logout; [PASSED]
 4. Reset app state; [PASSED]
