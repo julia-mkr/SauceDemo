@@ -5,10 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.CartPage;
-import pages.CheckoutPage;
-import pages.LoginPage;
-import pages.ProductsPage;
+import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +14,13 @@ public class BaseTest {
     LoginPage loginPage;
     ProductsPage productsPage;
     CartPage cartPage;
-    CheckoutPage checkoutPage;
+    CheckoutStepOnePage checkoutStepOne;
+    CheckoutStepTwoPage checkoutStepTwo;
+    CheckoutCompletePage checkoutComplete;
+
+    public static final String SAUCEDEMO_PAGE_URL = "https://www.saucedemo.com";
+    public static final String INVENTORY_PAGE_URL = SAUCEDEMO_PAGE_URL + "/inventory.html";
+    public static final String CART_PAGE_URL = SAUCEDEMO_PAGE_URL + "/cart.html";
 
     @BeforeMethod
     public void initTest() {
@@ -28,7 +31,9 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
-        checkoutPage = new CheckoutPage(driver);
+        checkoutStepOne = new CheckoutStepOnePage(driver);
+        checkoutStepTwo = new CheckoutStepTwoPage(driver);
+        checkoutComplete = new CheckoutCompletePage(driver);
     }
 
     @AfterMethod

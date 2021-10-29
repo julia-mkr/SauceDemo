@@ -2,6 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class CartPage extends BasePage {
 
@@ -22,7 +25,7 @@ public class CartPage extends BasePage {
         driver.findElement(CHECKOUT_BUTTON).click();
     }
 
-    public void removeItemFromCart(String productName) {
+    public void clickOnRemoveButton(String productName) {
         driver.findElement(By.xpath(String.format(REMOVE_BUTTON, productName))).click();
     }
 
@@ -30,4 +33,8 @@ public class CartPage extends BasePage {
         driver.findElement(CONTINUE_SHOPPING_BUTTON).click();
     }
 
+    public int getAmountOfRemoveButtons() {
+        List<WebElement> removeButtonsList = driver.findElements(By.xpath("//*[contains(text(),'Remove')]"));
+        return removeButtonsList.size();
+    }
 }

@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 
 public class BasePage {
+
     WebDriver driver;
 
     BasePage(WebDriver driver) {
@@ -12,4 +13,5 @@ public class BasePage {
     public void openPage(String url) {
         driver.get(url);
     }
+
 }
