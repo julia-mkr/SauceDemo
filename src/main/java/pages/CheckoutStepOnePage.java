@@ -15,17 +15,16 @@ public class CheckoutStepOnePage extends BasePage{
     private static final By CONTINUE_BUTTON = By.xpath("//*[@id='continue']");
     private static final By CANCEL_BUTTON_ON_CHECKOUT_STEP_ONE = By.xpath("//*[@id='cancel']/ancestor::*[@class='checkout_buttons']//button");
 
-    public void fillInCheckoutInfo(String firstname, String lastName, String zipCode) {
+    public CheckoutStepTwoPage fillInCheckoutInfo(String firstname, String lastName, String zipCode) {
         driver.findElement(FIRST_NAME_INPUT).sendKeys(firstname);
         driver.findElement(LAST_NAME_INPUT).sendKeys(lastName);
         driver.findElement(ZIP_CODE_INPUT).sendKeys(zipCode);
-    }
-
-    public void clickOnContinueButton() {
         driver.findElement(CONTINUE_BUTTON).click();
+        return new CheckoutStepTwoPage(driver);
     }
 
-    public void clickOnCancelButtonOnCheckoutStepOnePage() {
+    public CartPage clickOnCancelButtonOnCheckoutStepOnePage() {
         driver.findElement(CANCEL_BUTTON_ON_CHECKOUT_STEP_ONE).click();
+        return new CartPage(driver);
     }
 }

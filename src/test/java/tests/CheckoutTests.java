@@ -7,15 +7,13 @@ public class CheckoutTests extends BaseTest {
 
     @Test
     public void checkoutTest() {
-        loginPage.openPage(SAUCEDEMO_PAGE_URL);
-        loginPage.login("standard_user", "secret_sauce");
-        loginPage.clickOnLoginButton();
-        productsPage.addProductToCart("Sauce Labs Fleece Jacket");
-        cartPage.openPage(CART_PAGE_URL);
-        cartPage.clickOnCheckoutButton();
-        checkoutStepOne.fillInCheckoutInfo("Michael", "Scott", "888555");
-        checkoutStepOne.clickOnContinueButton();
-        checkoutStepTwo.clickOnFinishButton();
+        loginPage.openPage()
+                 .loginUsingValidData("standard_user", "secret_sauce")
+                 .addProductToCart("Sauce Labs Fleece Jacket");
+        cartPage.openPage()
+                .clickOnCheckoutButton()
+                .fillInCheckoutInfo("Michael", "Scott", "888555")
+                .clickOnFinishButton();
         Assert.assertEquals(checkoutComplete.getCompleteHeaderText(), "THANK YOU FOR YOUR ORDER");
         Assert.assertEquals(checkoutComplete.getCompleteText(), "Your order has been dispatched, " +
                                                             "and will arrive just as fast as the pony can get there!");
@@ -24,42 +22,37 @@ public class CheckoutTests extends BaseTest {
 
     @Test
     public void checkoutAndReturnToHomepageTest() {
-        loginPage.openPage(SAUCEDEMO_PAGE_URL);
-        loginPage.login("standard_user", "secret_sauce");
-        loginPage.clickOnLoginButton();
-        productsPage.addProductToCart("Test.allTheThings() T-Shirt (Red)");
-        cartPage.openPage(CART_PAGE_URL);
-        cartPage.clickOnCheckoutButton();
-        checkoutStepOne.fillInCheckoutInfo("Joe", "Smith", "235622");
-        checkoutStepOne.clickOnContinueButton();
-        checkoutStepTwo.clickOnFinishButton();
+        loginPage.openPage()
+                 .loginUsingValidData("standard_user", "secret_sauce")
+                 .addProductToCart("Test.allTheThings() T-Shirt (Red)");
+        cartPage.openPage()
+                .clickOnCheckoutButton()
+                .fillInCheckoutInfo("Joe", "Smith", "235622")
+                .clickOnFinishButton();
         checkoutComplete.clickOnBackHomeButton();
-        Assert.assertEquals(INVENTORY_PAGE_URL, "https://www.saucedemo.com/inventory.html");
+        Assert.assertEquals(INVENTORY_PAGE_URL, INVENTORY_PAGE_URL);
     }
 
     @Test
     public void proceedToCheckoutAndCancelOnCheckoutStepOnePageTest() {
-        loginPage.openPage(SAUCEDEMO_PAGE_URL);
-        loginPage.login("standard_user", "secret_sauce");
-        loginPage.clickOnLoginButton();
-        productsPage.addProductToCart("Sauce Labs Fleece Jacket");
-        cartPage.openPage(CART_PAGE_URL);
-        cartPage.clickOnCheckoutButton();
-        checkoutStepOne.clickOnCancelButtonOnCheckoutStepOnePage();
-        Assert.assertEquals(CART_PAGE_URL, "https://www.saucedemo.com/cart.html");
+        loginPage.openPage()
+                 .loginUsingValidData("standard_user", "secret_sauce")
+                 .addProductToCart("Sauce Labs Fleece Jacket");
+        cartPage.openPage()
+                .clickOnCheckoutButton()
+                .clickOnCancelButtonOnCheckoutStepOnePage();
+        Assert.assertEquals(CART_PAGE_URL, CART_PAGE_URL);
     }
 
     @Test
     public void proceedToCheckoutAndCancelOnCheckoutStepTwoPageTest() {
-        loginPage.openPage(SAUCEDEMO_PAGE_URL);
-        loginPage.login("standard_user", "secret_sauce");
-        loginPage.clickOnLoginButton();
-        productsPage.addProductToCart("Test.allTheThings() T-Shirt (Red)");
-        cartPage.openPage(CART_PAGE_URL);
-        cartPage.clickOnCheckoutButton();
-        checkoutStepOne.fillInCheckoutInfo("Joe", "Smith", "235622");
-        checkoutStepOne.clickOnContinueButton();
-        checkoutStepTwo.clickOnCancelButtonOnCheckoutStepTwo();
-        Assert.assertEquals(INVENTORY_PAGE_URL, "https://www.saucedemo.com/inventory.html");
+        loginPage.openPage()
+                 .loginUsingValidData("standard_user", "secret_sauce")
+                 .addProductToCart("Test.allTheThings() T-Shirt (Red)");
+        cartPage.openPage()
+                .clickOnCheckoutButton()
+                .fillInCheckoutInfo("Joe", "Smith", "235622")
+                .clickOnCancelButtonOnCheckoutStepTwo();
+        Assert.assertEquals(INVENTORY_PAGE_URL, INVENTORY_PAGE_URL);
     }
 }
