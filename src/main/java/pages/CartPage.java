@@ -19,6 +19,11 @@ public class CartPage extends BasePage {
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, productName))).getText();
     }
 
+    public boolean isRemoveButtonMissing() {
+        return driver.findElements(By.xpath("//*[contains(text(),'Remove')]")).size() < 1;
+    }
+
+
     public CheckoutStepOnePage clickOnCheckoutButton() {
         driver.findElement(CHECKOUT_BUTTON).click();
         return new CheckoutStepOnePage(driver);

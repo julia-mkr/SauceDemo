@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class CartTests extends BaseTest {
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void addProductToCartTest() {
         loginPage.openPage()
                  .loginUsingValidData("standard_user", "secret_sauce")

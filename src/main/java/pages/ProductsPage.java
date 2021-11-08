@@ -25,6 +25,10 @@ public class ProductsPage extends BasePage{
         return this;
     }
 
+    public boolean isRemoveButtonMissing() {
+        return driver.findElements(By.xpath("//*[contains(text(),'Remove')]")).size() < 1;
+    }
+
     public void waitForPageOpened(int timeout) {
         wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[contains(@id, '_img_link')]")));

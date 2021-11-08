@@ -1,14 +1,24 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BaseTest {
 
-    @Test
-    public void loginUsingValidDataTest() {
+    @DataProvider(name = "User data")
+    public Object[][] userData() {
+        return new Object[][]{
+                {"standard_user", "secret_sauce"},
+                {"standard_user", ""},
+                {"", "secret_sauce"},
+        };
+    }
+
+    @Test(dataProvider = "User data")
+    public void loginUsingValidDataTest(String username, String password) {
         loginPage.openPage()
-                 .loginUsingValidData("standard_user", "secret_sauce");
+                 .loginUsingValidData(username, password);
         Assert.assertEquals(INVENTORY_PAGE_URL, INVENTORY_PAGE_URL);
     }
 
