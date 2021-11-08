@@ -26,7 +26,12 @@ public class CheckoutCompletePage extends BasePage {
         return driver.findElement(IMAGE_ON_CHECKOUT_COMPLETE).isDisplayed();
     }
 
-    public void clickOnBackHomeButton() {
+    public ProductsPage clickOnBackHomeButton() {
         driver.findElement(BACK_HOME_BUTTON).click();
+        return new ProductsPage(driver);
+    }
+
+    public void waitForPageOpened() {
+        waitForElementLocated(IMAGE_ON_CHECKOUT_COMPLETE, 10);
     }
 }
