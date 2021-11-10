@@ -1,3 +1,31 @@
+### Lesson 12. Homework
+
+1. Обновить версии всех библиотек в проекте и ее вывод:
+
+**a.**
+
+[INFO] The following dependencies in Dependencies have newer versions:
+
+[INFO]   org.seleniumhq.selenium:selenium-java .............. 3.141.59 -> 4.0.0
+
+[INFO] BUILD SUCCESS
+
+**b.** 
+[INFO] Updated org.seleniumhq.selenium:selenium-java:jar:3.141.59 to version 4.0.0
+
+[INFO] BUILD SUCCESS
+
+
+2. Запустить тесты, используя mvn clean test команду и ее вывод:
+
+   [INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 258.835 s - in TestSuite
+
+   [INFO] Results:
+
+   [INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+
+   [INFO] BUILD SUCCESS
+------------------
 ###### Checklist for the SauceDemo website
 
 **_Modal:_** Login page
