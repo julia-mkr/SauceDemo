@@ -1,5 +1,6 @@
 package tests;
 
+import constants.TestConstants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,7 +10,7 @@ import org.testng.annotations.Listeners;
 import pages.*;
 
 @Listeners(TestListener.class)
-public class BaseTest {
+public class BaseTest implements TestConstants {
     WebDriver driver;
     LoginPage loginPage;
     ProductsPage productsPage;
@@ -18,10 +19,6 @@ public class BaseTest {
     CheckoutStepTwoPage checkoutStepTwo;
     CheckoutCompletePage checkoutComplete;
     LoginPageFactory loginPageFactory;
-
-    public static final String SAUCEDEMO_PAGE_URL = "https://www.saucedemo.com";
-    public static final String INVENTORY_PAGE_URL = SAUCEDEMO_PAGE_URL + "/inventory.html";
-    public static final String CART_PAGE_URL = SAUCEDEMO_PAGE_URL + "/cart.html";
 
     @BeforeMethod
     public void initTest() {

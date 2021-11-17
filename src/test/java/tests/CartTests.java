@@ -1,11 +1,13 @@
 package tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CartTests extends BaseTest {
 
     @Test(retryAnalyzer = Retry.class)
+    @Description("Add a product to cart")
     public void addProductToCartTest() {
         loginPage.openPage()
                  .loginUsingValidData("standard_user", "secret_sauce")
@@ -42,6 +44,6 @@ public class CartTests extends BaseTest {
                 .addProductToCart("Sauce Labs Fleece Jacket");
         cartPage.openPage()
                 .clickOnContinueShoppingButton();
-        Assert.assertEquals(INVENTORY_PAGE_URL, INVENTORY_PAGE_URL);
+        Assert.assertEquals(cartPage.getCurrentUrl(), INVENTORY_PAGE_URL);
     }
 }

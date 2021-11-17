@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,13 +14,14 @@ public class ProductsPage extends BasePage{
 
     private static final String ADD_PRODUCT_TO_CART_BUTTON = "//*[text()='%s']/ancestor::*[@class='inventory_item']//button";
     private static final String REMOVE_BUTTON = "//*[text()='%s']/ancestor::*[@class='inventory_item']//button";
-    private static final String INVENTORY_URL = "/inventory.html";
 
+    @Step("Add a product to the cart")
     public ProductsPage addProductToCart(String productName) {
         driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))).click();
         return this;
     }
 
+    @Step("Remove a product from the cart on the product page")
     public ProductsPage removeItemFromCartOnProductsPage(String productName) {
         driver.findElement(By.xpath(String.format(REMOVE_BUTTON, productName))).click();
         return this;

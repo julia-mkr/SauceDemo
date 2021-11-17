@@ -10,8 +10,6 @@ public class LoginTests extends BaseTest {
     public Object[][] userData() {
         return new Object[][]{
                 {"standard_user", "secret_sauce"},
-                {"standard_user", ""},
-                {"", "secret_sauce"},
         };
     }
 
@@ -19,14 +17,14 @@ public class LoginTests extends BaseTest {
     public void loginUsingValidDataTest(String username, String password) {
         loginPage.openPage()
                  .loginUsingValidData(username, password);
-        Assert.assertEquals(INVENTORY_PAGE_URL, INVENTORY_PAGE_URL);
+        Assert.assertEquals(loginPage.getCurrentUrl(), INVENTORY_PAGE_URL);
     }
 
     @Test
     public void loginThroughLoginPageFactoryClassTest() {
         loginPageFactory.openPage()
                 .login("standard_user", "secret_sauce");
-        Assert.assertEquals(INVENTORY_PAGE_URL, INVENTORY_PAGE_URL);
+        Assert.assertEquals(loginPage.getCurrentUrl(), INVENTORY_PAGE_URL);
     }
 
     @Test

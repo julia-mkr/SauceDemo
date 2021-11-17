@@ -30,7 +30,7 @@ public class CheckoutTests extends BaseTest {
                 .fillInCheckoutInfo("Joe", "Smith", "235622")
                 .clickOnFinishButton();
         checkoutComplete.clickOnBackHomeButton();
-        Assert.assertEquals(INVENTORY_PAGE_URL, INVENTORY_PAGE_URL);
+        Assert.assertEquals(checkoutComplete.getCurrentUrl(), INVENTORY_PAGE_URL);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class CheckoutTests extends BaseTest {
         cartPage.openPage()
                 .clickOnCheckoutButton()
                 .clickOnCancelButtonOnCheckoutStepOnePage();
-        Assert.assertEquals(CART_PAGE_URL, CART_PAGE_URL);
+        Assert.assertEquals(checkoutStepOne.getCurrentUrl(), CART_PAGE_URL);
     }
 
     @Test
@@ -53,6 +53,6 @@ public class CheckoutTests extends BaseTest {
                 .clickOnCheckoutButton()
                 .fillInCheckoutInfo("Joe", "Smith", "235622")
                 .clickOnCancelButtonOnCheckoutStepTwo();
-        Assert.assertEquals(INVENTORY_PAGE_URL, INVENTORY_PAGE_URL);
+        Assert.assertEquals(checkoutStepTwo.getCurrentUrl(), INVENTORY_PAGE_URL);
     }
 }

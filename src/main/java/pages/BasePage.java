@@ -1,12 +1,12 @@
 package pages;
 
-import org.openqa.selenium.By;
+import constants.PageConstants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage {
+public class BasePage implements PageConstants {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -16,14 +16,12 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public static final String BASE_URL = "https://www.saucedemo.com";
-
+    @Step("Opening URL: '{url}'")
     public void openPage(String url) {
         driver.get(url);
     }
 
-    public void waitForElementLocated(By element, int timeout) {
-        wait = new WebDriverWait(driver, timeout);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
     }
 }
