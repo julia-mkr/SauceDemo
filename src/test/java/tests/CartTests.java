@@ -9,11 +9,9 @@ public class CartTests extends BaseTest {
     @Test(retryAnalyzer = Retry.class)
     @Description("Add a product to cart")
     public void addProductToCartTest() {
-        loginPage.openPage()
-                 .loginUsingValidData("standard_user", "secret_sauce")
-                 .addProductToCart("Sauce Labs Bolt T-Shirt");
+        productSteps.loginAndAddProductToCart("standard_user", "secret_sauce", "Sauce Labs Onesie");
         cartPage.openPage();
-        Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
+        Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$16.99");
     }
 
     @Test
@@ -45,5 +43,6 @@ public class CartTests extends BaseTest {
         cartPage.openPage()
                 .clickOnContinueShoppingButton();
         Assert.assertEquals(cartPage.getCurrentUrl(), INVENTORY_PAGE_URL);
+        Assert.assertTrue(productsPage.isProductSortDropdownDisplayed());
     }
 }

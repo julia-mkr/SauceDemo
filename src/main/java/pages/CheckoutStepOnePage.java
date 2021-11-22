@@ -16,7 +16,8 @@ public class CheckoutStepOnePage extends BasePage{
     private static final By CONTINUE_BUTTON = By.xpath("//*[@id='continue']");
     private static final By CANCEL_BUTTON_ON_CHECKOUT_STEP_ONE = By.xpath("//*[@id='cancel']/ancestor::*[@class='checkout_buttons']//button");
 
-    @Step("Fill in all fields on the checkout info page")
+    @Step("Fill in all fields on the checkout info page with First name: '{firstname}', Last name: '{lastName}', " +
+            "Zip Code: '{zipCode}'")
     public CheckoutStepTwoPage fillInCheckoutInfo(String firstname, String lastName, String zipCode) {
         driver.findElement(FIRST_NAME_INPUT).sendKeys(firstname);
         driver.findElement(LAST_NAME_INPUT).sendKeys(lastName);
@@ -25,7 +26,7 @@ public class CheckoutStepOnePage extends BasePage{
         return new CheckoutStepTwoPage(driver);
     }
 
-    @Step("Click on the Cancel Button on Chekout Step One page")
+    @Step("Click on the 'Cancel Button' on Checkout Step One page")
     public CartPage clickOnCancelButtonOnCheckoutStepOnePage() {
         driver.findElement(CANCEL_BUTTON_ON_CHECKOUT_STEP_ONE).click();
         return new CartPage(driver);
