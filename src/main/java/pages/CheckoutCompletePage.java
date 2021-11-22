@@ -1,7 +1,9 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.Waiters;
 
 public class CheckoutCompletePage extends BasePage {
 
@@ -26,12 +28,13 @@ public class CheckoutCompletePage extends BasePage {
         return driver.findElement(IMAGE_ON_CHECKOUT_COMPLETE).isDisplayed();
     }
 
+    @Step("Click on the Back Home button")
     public ProductsPage clickOnBackHomeButton() {
         driver.findElement(BACK_HOME_BUTTON).click();
         return new ProductsPage(driver);
     }
 
     public void waitForPageOpened() {
-        waitForElementLocated(IMAGE_ON_CHECKOUT_COMPLETE, 10);
+        Waiters.waitForElementLocated(driver, IMAGE_ON_CHECKOUT_COMPLETE, 10);
     }
 }

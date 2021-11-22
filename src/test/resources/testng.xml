@@ -8,7 +8,7 @@
             </run>
         </groups>-->
         <classes>
-            <class name="tests.CartTests"/>
+<!--            <class name="tests.CartTests"/>-->
             <class name="tests.ProductsTests"/>
 <!--            <parameter name="password" value="password"></parameter>-->
 <!--            <parameter name="email" value="test@mailinator.com"></parameter>-->

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,11 +13,13 @@ public class CheckoutStepTwoPage extends BasePage{
     private static final By CANCEL_BUTTON_ON_CHECKOUT_STEP_TWO = By.xpath("//*[@id='cancel']/ancestor::*[@class='cart_footer']//button");
     private static final By FINISH_BUTTON = By.xpath("//*[@id='finish']");
 
+    @Step("Click on the Cancel button on the Checkout Step two page")
     public ProductsPage clickOnCancelButtonOnCheckoutStepTwo() {
         driver.findElement(CANCEL_BUTTON_ON_CHECKOUT_STEP_TWO).click();
         return new ProductsPage(driver);
     }
 
+    @Step("Click on the Finish button")
     public CheckoutCompletePage clickOnFinishButton() {
         driver.findElement(FINISH_BUTTON).click();
         return new CheckoutCompletePage(driver);

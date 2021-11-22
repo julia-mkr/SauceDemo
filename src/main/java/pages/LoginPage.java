@@ -1,7 +1,9 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.Waiters;
 
 public class LoginPage extends BasePage {
 
@@ -34,6 +36,7 @@ public class LoginPage extends BasePage {
         return driver.findElement(INVALID_DATE_ERROR_MESSAGE).getText();
     }
 
+    @Step("Log in as '{username}' with '{password}'")
     public ProductsPage loginUsingValidData(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -41,6 +44,7 @@ public class LoginPage extends BasePage {
         return new ProductsPage(driver);
     }
 
+    @Step("Log in as '{username}' with '{password}' using invalid data")
     public LoginPage loginUsingInvalidData(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -49,7 +53,7 @@ public class LoginPage extends BasePage {
     }
 
     public void waitForPageOpened() {
-        waitForElementLocated(BOT_LOGO, 10);
+        Waiters.waitForElementLocated(driver, BOT_LOGO, 10);
     }
 
     public LoginPage openPage() {
