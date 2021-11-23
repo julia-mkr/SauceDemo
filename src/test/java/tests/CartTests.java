@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
 
 public class CartTests extends BaseTest {
 
@@ -11,13 +12,13 @@ public class CartTests extends BaseTest {
     public void addProductToCartTest() {
         productSteps.loginAndAddProductToCart("standard_user", "secret_sauce", "Sauce Labs Onesie");
         cartPage.openPage();
-        Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
+        Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$16.99");
     }
 
     @Test
     public void addTwoProductsToCartTest() {
         loginPage.openPage()
-                 .loginUsingValidData(System.getenv("username"), System.getenv("password"))
+                 .loginUsingValidData(System.getenv().getOrDefault("username", PropertyReader.getProperty("username")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                  .addProductToCart("Sauce Labs Onesie")
                  .addProductToCart("Sauce Labs Bike Light");
         cartPage.openPage();
