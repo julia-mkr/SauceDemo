@@ -24,7 +24,7 @@ jobs:
 
       - run:
           name: Running tests
-          command: mvn clean
+          command: mvn clean -Dtest=CartTests test
       - run:
           name: Generate allure report
           command: mvn allure:report
