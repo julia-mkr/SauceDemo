@@ -24,7 +24,7 @@ jobs:
 
       - run:
           name: Running tests
-          command: mvn clean -Dusername="standard_user" -Dpassword="secret_sauce" install
+          command: mvn clean install
       - run:
           name: Generate allure report
           command: mvn allure:report

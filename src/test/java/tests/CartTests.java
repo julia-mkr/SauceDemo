@@ -17,7 +17,7 @@ public class CartTests extends BaseTest {
     @Test
     public void addTwoProductsToCartTest() {
         loginPage.openPage()
-                 .loginUsingValidData(System.getProperty("username"), System.getProperty("password"))
+                 .loginUsingValidData(System.getenv("username"), System.getenv("password"))
                  .addProductToCart("Sauce Labs Onesie")
                  .addProductToCart("Sauce Labs Bike Light");
         cartPage.openPage();
