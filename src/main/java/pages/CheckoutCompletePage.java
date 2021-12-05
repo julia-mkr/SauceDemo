@@ -1,10 +1,12 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.Waiters;
 
+@Log4j2
 public class CheckoutCompletePage extends BasePage {
 
     public CheckoutCompletePage(WebDriver driver) {
@@ -30,6 +32,7 @@ public class CheckoutCompletePage extends BasePage {
 
     @Step("Click on the Back Home button")
     public ProductsPage clickOnBackHomeButton() {
+        log.info("Click on the 'Back home' button on 'Checkout Complete' page");
         driver.findElement(BACK_HOME_BUTTON).click();
         return new ProductsPage(driver);
     }

@@ -33,7 +33,7 @@ public class CartTests extends BaseTest {
                  .addProductToCart("Sauce Labs Onesie");
         cartPage.openPage()
                 .clickOnRemoveButton("Sauce Labs Onesie");
-        Assert.assertTrue(cartPage.isRemoveButtonMissing());
+        Assert.assertTrue(cartPage.isRemoveButtonAbsent());
     }
 
     @Test

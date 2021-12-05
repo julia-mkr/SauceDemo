@@ -11,6 +11,6 @@ public class ProductsTests extends BaseTest {
                 .loginUsingValidData("standard_user", "secret_sauce")
                 .addProductToCart("Sauce Labs Backpack")
                 .removeItemFromCartOnProductsPage("Sauce Labs Backpack");
-        Assert.assertTrue(productsPage.isRemoveButtonMissing());
+        Assert.assertTrue(productsPage.isRemoveButtonAbsent());
     }
 }

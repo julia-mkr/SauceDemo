@@ -19,6 +19,4 @@ public class ProductSteps {
                 .addProductToCart(productName);
         return this;
     }
-
-
 }
