@@ -1,9 +1,11 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Log4j2
 public class LoginPageFactory extends BasePage {
 
     public LoginPageFactory(WebDriver driver) {
@@ -44,8 +46,11 @@ public class LoginPageFactory extends BasePage {
     }
 
     public ProductsPage login(String username, String password) {
+        log.info(String.format("Type text: '%s' into the username field on 'Login' page", username));
         userNameInput.sendKeys(username);
+        log.info(String.format("Type text: '%s' into the password field", password));
         passwordInput.sendKeys(password);
+        log.info("Click on the 'Login' button");
         loginButton.click();
         return new ProductsPage(driver);
     }

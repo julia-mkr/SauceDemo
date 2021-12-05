@@ -1,10 +1,12 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.Waiters;
 
+@Log4j2
 public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
@@ -38,16 +40,22 @@ public class LoginPage extends BasePage {
 
     @Step("Log in as '{username}' with '{password}'")
     public ProductsPage loginUsingValidData(String username, String password) {
+        log.info(String.format("Type text: '%s' into the username field on Login page", username));
         driver.findElement(USERNAME_INPUT).sendKeys(username);
+        log.info(String.format("Type text: '%s' into the password field on Login page", password));
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
+        log.info("Click on the 'Login' button");
         driver.findElement(LOGIN_BUTTON).click();
         return new ProductsPage(driver);
     }
 
     @Step("Log in as '{username}' with '{password}' using invalid data")
     public LoginPage loginUsingInvalidData(String username, String password) {
+        log.info(String.format("Type text: '%s' into the username field on 'Login' page", username));
         driver.findElement(USERNAME_INPUT).sendKeys(username);
+        log.info(String.format("Type text: '%s' into the password field", password));
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
+        log.info("Click on the 'Login' button");
         driver.findElement(LOGIN_BUTTON).click();
         return this;
     }
